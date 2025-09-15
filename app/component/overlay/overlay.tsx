@@ -373,7 +373,7 @@ const res = await fetch("/api/chat", {
             files: [new File([dataURLtoBlob(dataUrl)], "grandma-meme.png", { type: "image/png" })],
           }).then(() => console.log('Successful share'))
             .catch((error) => {
-              console.error('Error sharing using Web Share API:', error);
+            //   console.error('Error sharing using Web Share API:', error);
               downloadImage(dataUrl);
             });
         } else {

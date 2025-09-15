@@ -1,10 +1,25 @@
-import React, { JSX } from "react";
+"use client"
+import React, { JSX, useState } from "react";
 import { Avatar, AvatarImage } from "./component/ui/avatar";
 import { Button } from "./component/ui/button";
 import { Card, CardContent } from "./component/ui/card";
+import { Dialog, DialogContent, DialogTrigger } from "./component/overlay/dialog";
+import { Overlay } from "./component/overlay/overlay";
+import Link from "next/link";
 
 
-export const LandingPage = (): JSX.Element => {
+ const LandingPage = (): JSX.Element => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  React.useEffect(() => {
+    const handleCloseModal = () => {
+      setIsModalOpen(false);
+    };
+
+    window.addEventListener('closeModal', handleCloseModal);
+    return () => window.removeEventListener('closeModal', handleCloseModal);
+  }, []);
+
   const howItWorksSteps = [
     {
       icon: "https://c.animaapp.com/mfhdz9vioM8Kab/img/frame-11.svg",
@@ -33,7 +48,7 @@ export const LandingPage = (): JSX.Element => {
       <div className="bg-white w-full max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="w-full bg-[#fffceb] px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12 lg:pb-16">
-          <header className="translate-y-[-1rem] animate-fade-in  [--animation-delay:0ms] flex w-full items-center justify-between py-4 sm:py-6">
+          <header className="translate-y-[-1rem] animate-fade-in [--animation-delay:0ms] flex w-full items-center justify-between py-4 sm:py-6">
             <img
               className="w-12 h-14 sm:w-14 sm:h-16 lg:w-[57.66px] lg:h-[69.79px]"
               alt="Grandma logo"
@@ -41,23 +56,31 @@ export const LandingPage = (): JSX.Element => {
             />
 
             <div className="flex items-center gap-2 sm:gap-4 lg:gap-6">
-              <Button
-                variant="outline"
-                className="h-10 px-4 py-2 sm:h-12 sm:px-6 lg:px-8 lg:py-2.5 rounded-full border-2 border-[#8359db] text-[#8359db] font-semibold hover:bg-[#8359db] hover:text-white transition-colors text-sm sm:text-base"
-              >
-                <span className="hidden sm:inline">Try it Free</span>
-                <span className="sm:hidden">Try Free</span>
-              </Button>
-
+              <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="h-10 px-4 py-2 sm:h-12 sm:px-6 lg:px-8 lg:py-2.5 rounded-full border-2 border-[#8359db] text-[#8359db] font-semibold hover:bg-[#8359db] hover:text-white transition-colors text-sm sm:text-base"
+                  >
+                    <span className="hidden sm:inline">Try it Free</span>
+                    <span className="sm:hidden">Try Free</span>
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="p-0 border-0 bg-transparent shadow-none max-w-none w-auto h-auto">
+                  <Overlay />
+                </DialogContent>
+              </Dialog>
+                 <Link href="https://forms.gle/UHcXP9UH4MkopEe76" target="_blank">
               <Button className="h-10 px-4 py-2 sm:h-12 sm:px-6 lg:px-8 lg:py-2.5 bg-[#8359db] rounded-full font-semibold hover:bg-[#6b47c4] transition-colors text-sm sm:text-base">
                 <span className="hidden sm:inline">Join the Waitlist</span>
                 <span className="sm:hidden">Join</span>
               </Button>
+              </Link>
             </div>
           </header>
 
           <main className="flex flex-col w-full max-w-4xl items-center gap-6 sm:gap-8 mx-auto mt-8 sm:mt-12 lg:mt-16">
-            <div className="translate-y-[-1rem] animate-fade-in [--animation-delay:200ms] flex flex-col w-full items-center gap-4 text-center">
+            <div className="translate-y-[-1rem] animate-fade-in  [--animation-delay:200ms] flex flex-col w-full items-center gap-4 text-center">
               <h1 className="font-semibold text-[#1e1e1e] text-3xl sm:text-4xl lg:text-5xl leading-tight">
                 Grandma Always Knows.
               </h1>
@@ -119,22 +142,32 @@ export const LandingPage = (): JSX.Element => {
 
             {/* CTA Buttons */}
             <div className="translate-y-[-1rem] animate-fade-in  [--animation-delay:600ms] flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-4 sm:mt-6">
-              <Button
-                variant="outline"
-                className="w-full sm:w-auto h-12 sm:h-14 px-6 sm:px-8 py-2.5 rounded-full border-2 border-[#8359db] text-[#8359db] font-semibold hover:bg-[#8359db] hover:text-white transition-colors"
-              >
-                Try it Free
-              </Button>
-
-              <Button className="w-full sm:w-auto h-12 sm:h-14 px-6 sm:px-8 py-2.5 bg-[#8359db] rounded-full font-semibold hover:bg-[#6b47c4] transition-colors">
+              <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="w-full sm:w-auto h-12 sm:h-14 px-6 sm:px-8 py-2.5 rounded-full border-2 border-[#8359db] text-[#8359db] font-semibold hover:bg-[#8359db] hover:text-white transition-colors"
+                  >
+                    Try it Free
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="p-0 border-0 bg-transparent shadow-none max-w-none w-auto h-auto">
+                  <Overlay />
+                </DialogContent>
+              </Dialog>
+                <Link href="https://forms.gle/UHcXP9UH4MkopEe76" target="_blank">
+                <Button className="w-full sm:w-auto h-12 sm:h-14 px-6 sm:px-8 py-2.5 bg-[#8359db] rounded-full font-semibold hover:bg-[#6b47c4] transition-colors">
                 Join the Waitlist
               </Button>
+                
+                </Link>
+              
             </div>
           </main>
         </div>
 
         {/* How it Works Section */}
-        <section className="translate-y-[-1rem] animate-fade-in [--animation-delay:800ms] flex flex-col w-full items-center gap-8 sm:gap-10 lg:gap-12 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <section className="translate-y-[-1rem] animate-fade-in  [--animation-delay:800ms] flex flex-col w-full items-center gap-8 sm:gap-10 lg:gap-12 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h2 className="font-semibold text-[#1e1e1e] text-2xl sm:text-3xl lg:text-4xl text-center">
             How it Works
           </h2>
@@ -152,7 +185,7 @@ export const LandingPage = (): JSX.Element => {
                 />
 
                 <div className="flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-3xl border border-[#e5d9ff]">
-                  <div className="font-normal text-[#1e1e1e] lg:text-sm text-xl text-center">
+                  <div className="font-normal text-[#1e1e1e] text-lg sm:text-xl text-center">
                     {step.title}
                   </div>
                 </div>
@@ -162,7 +195,7 @@ export const LandingPage = (): JSX.Element => {
         </section>
 
         {/* Final CTA Section */}
-        <section className="translate-y-[-1rem] animate-fade-in  [--animation-delay:1000ms] flex flex-col items-center gap-6 sm:gap-8 lg:gap-10 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 text-center">
+        <section className="translate-y-[-1rem] animate-fade-in [--animation-delay:1000ms] flex flex-col items-center gap-6 sm:gap-8 lg:gap-10 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 text-center">
           <h2 className="font-semibold text-[#1e1e1e] text-2xl sm:text-3xl lg:text-4xl max-w-2xl">
             Want the full grandma experience?
           </h2>
@@ -171,14 +204,15 @@ export const LandingPage = (): JSX.Element => {
             Join Grandma - the AI that protects your heart and rewards your
             choices.
           </p>
-
+            <Link href="https://forms.gle/UHcXP9UH4MkopEe76" target="_blank">
           <Button className="h-12 sm:h-14 px-6 sm:px-8 py-2.5 bg-[#8359db] rounded-full font-semibold hover:bg-[#6b47c4] transition-colors">
             Join the Waitlist
           </Button>
+          </Link>
         </section>
 
         {/* Footer */}
-        <footer className=" animate-fade-in  [--animation-delay:1200ms] flex flex-col w-full items-center gap-6 sm:gap-8 lg:gap-10 px-4 sm:px-6 lg:px-8 py-8 sm:py-10 bg-[#8359db]">
+        <footer className="translate-y-[-1rem] animate-fade-in  [--animation-delay:1200ms] flex flex-col w-full items-center gap-6 sm:gap-8 lg:gap-10 px-4 sm:px-6 lg:px-8 py-8 sm:py-10 bg-[#8359db]">
           <img
             className="w-12 h-14 sm:w-14 sm:h-16 lg:w-[57.66px] lg:h-[69.79px]"
             alt="Grandma logo"
@@ -195,5 +229,4 @@ export const LandingPage = (): JSX.Element => {
     </div>
   );
 };
-
-export default LandingPage;
+export default  LandingPage
