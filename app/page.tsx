@@ -89,8 +89,8 @@ import Link from "next/link";
                Get your first Grandma Verdict in 5 seconds
               </p>
             </div>
-            <img src="/desktophero.png" alt="hero desktop image" className="hidden lg:block"/>
-            <img src="/mobilehero.png" alt="hero desktop image" className="lg:hidden " />
+            <img src="/herodesk.png" alt="hero desktop image" className="hidden lg:block"/>
+            <img src="/heromobile.png" alt="hero desktop image" className="lg:hidden " />
             
 
             {/* CTA Buttons */}
