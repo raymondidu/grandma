@@ -268,7 +268,7 @@ setIsFooterVisible(true);
        {/* Footer for Shareable Area - Controlled by `footerClass` */}
          {messages.length > 0 && (
        <div className={`text-center bg-white border-t border-[#dad8df] text-[#716e77] text-sm flex-shrink-0 transition-all duration-300 ${footerClass}`}>
-             www.grandmaai.com
+             www.grandmaai.app
           <h1>Wise. witty & protective</h1>
          </div>)}
       
