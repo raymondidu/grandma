@@ -459,7 +459,7 @@ const res = await fetch("/api/chat", {
   );
 
   return (
-    <div className="w-full max-w-[680px] h-auto max-h-[90vh] bg-white rounded-[32px] overflow-scroll relative">
+    <div className=" w-[380px] lg:w-full max-w-[680px] h-auto max-h-[90vh] bg-white rounded-[32px] overflow-scroll relative">
       {/* Header */}
       <div className="flex w-full items-center justify-center gap-2.5 px-4 py-4 sm:px-6 sm:py-6 bg-[#8359db] relative">
         <img
