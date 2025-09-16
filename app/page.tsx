@@ -140,7 +140,7 @@ import Link from "next/link";
                 />
 
                 <div className="flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-3xl border border-[#e5d9ff]">
-                  <div className="font-normal text-[#1e1e1e] text-lg sm:text-xl text-center">
+                  <div className="font-normal text-[#1e1e1e] text-lg lg:text-sm text-center">
                     {step.title}
                   </div>
                 </div>
