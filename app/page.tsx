@@ -92,7 +92,7 @@ import Link from "next/link";
             <img src="/herodesk.png" alt="hero desktop image" className="hidden lg:block"/>
             <img src="/heromobile.png" alt="hero desktop image" className="lg:hidden " />
             
-
+            <h1 className="text-[12px] lg:text-xl font-bold">CA: EG4wSzwjr9ZRCcwU9ryKo6hDR76QgxYrk2SD6a78pump</h1>
             {/* CTA Buttons */}
             <div className="translate-y-[-1rem] animate-fade-in  [--animation-delay:600ms] flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-4 sm:mt-6">
               <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
