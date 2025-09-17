@@ -155,8 +155,8 @@ setIsFooterVisible(true);
       </div>
       <img
         className="w-8 h-8 sm:w-10 sm:h-10 lg:w-11 lg:h-11 flex-shrink-0 rounded-full"
-        // src="/user.png"
-        src="https://c.animaapp.com/mfhdz9vioM8Kab/img/frame-6-1.svg"
+         src={`${process.env.NEXT_PUBLIC_APP_URL}/user.png`}
+        // src="https://c.animaapp.com/mfhdz9vioM8Kab/img/frame-6-1.svg"
         alt="User avatar"
         crossOrigin="anonymous"
       />
@@ -167,8 +167,8 @@ setIsFooterVisible(true);
     <div className="flex items-end gap-2 sm:gap-3">
       <img
         className="w-8 h-8 sm:w-10 sm:h-10 lg:w-11 lg:h-11 flex-shrink-0 rounded-full"
-        // src="/grandma.svg"
-         src="https://c.animaapp.com/mfhdz9vioM8Kab/img/frame-6.svg"
+         src={`${process.env.NEXT_PUBLIC_APP_URL}/grandma.svg`}
+        //  src="https://c.animaapp.com/mfhdz9vioM8Kab/img/frame-6.svg"
         alt="Grandma avatar"
         crossOrigin="anonymous"
       />
@@ -200,8 +200,8 @@ setIsFooterVisible(true);
         <img
           className="w-8 h-8 sm:w-11 sm:h-11"
           alt="Frame"
-        //   src="/grandma.svg"
-           src="https://c.animaapp.com/mfik764dNmxQ7u/img/frame-6.svg"
+          src={`${process.env.NEXT_PUBLIC_APP_URL}/grandma.svg`}
+        //    src="https://c.animaapp.com/mfik764dNmxQ7u/img/frame-6.svg"
         />
         <h1 className="font-semibold text-white text-lg sm:text-2xl">
           Grandma AI
@@ -229,8 +229,8 @@ setIsFooterVisible(true);
             <img 
               className="w-12 h-14 sm:w-[57.66px] sm:h-[69.79px]"
               alt="Grandma logo"
-            //   src="/grandma.svg"
-              src="https://c.animaapp.com/mfik764dNmxQ7u/img/grandma-logo-1.svg"
+              src={`${process.env.NEXT_PUBLIC_APP_URL}/grandma.svg`}
+            //   src="https://c.animaapp.com/mfik764dNmxQ7u/img/grandma-logo-1.svg"
             />
           </div>
         )}
@@ -251,8 +251,8 @@ setIsFooterVisible(true);
             <div className="flex items-end gap-2 sm:gap-3">
               <img
                 className="w-8 h-8 sm:w-10 sm:h-10 lg:w-11 lg:h-11 flex-shrink-0 rounded-full"
-                src="https://c.animaapp.com/mfik764dNmxQ7u/img/frame-6.svg"
-                // src="/public/grandma.svg"
+                // src="https://c.animaapp.com/mfik764dNmxQ7u/img/frame-6.svg"
+                 src={`${process.env.NEXT_PUBLIC_APP_URL}/grandma.svg`}
                 alt="Grandma avatar"
                 crossOrigin="anonymous"
               />
